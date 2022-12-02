@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAC;EACF,MAAM,EAAE,GAAG,CAAC,KAAK,CAAc,gBAAO;EACtC,aAAa,EAAE,GAAG;EAClB,UAAU,EAAE,wBAAwB;CAIvC;;AAPD,AAII,KAJC,AAIA,MAAM,CAAC;EACJ,MAAM,EAAE,cAAc;CACzB",
+    "sources": [
+        "Films.module.scss"
+    ],
+    "names": [],
+    "file": "Films.module.css"
+}

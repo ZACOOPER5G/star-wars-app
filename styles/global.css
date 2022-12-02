@@ -34,4 +34,12 @@ nav {
   margin: 0 auto !important;
   padding: 0 24px;
 }
+
+.film-list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
 /*# sourceMappingURL=global.css.map */

@@ -1,0 +1,11 @@
+.film {
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 4px;
+  -webkit-transition: border 150ms ease-in-out;
+  transition: border 150ms ease-in-out;
+}
+
+.film:hover {
+  border: 2px solid #ccc;
+}
+/*# sourceMappingURL=Films.module.css.map */
