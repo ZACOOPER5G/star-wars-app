@@ -1,5 +1,14 @@
+@font-face {
+  font-family: "STARWARS";
+  src: url("./@font-face/STARWARS.eot") format("eot"), url("./@font-face/STARWARS.woff") format("woff"), url("./@font-face/STARWARS.ttf") format("truetype"), url("./@font-face/STARWARS.svg#STARWARS") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .logo {
   margin-right: auto;
+  font-family: "STARWARS";
+  font-size: 36px;
 }
 
 .link {
