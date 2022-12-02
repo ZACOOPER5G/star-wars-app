@@ -1,0 +1,26 @@
+.logo {
+    margin-right: auto;
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    height: 38px;
+    width: 108px;
+    border-radius: 4px;
+    border: 0.2px solid black;
+    transition: background-color 50ms ease-in-out, transform 100ms ease-in-out;
+    &:hover {
+        transform: translateX(2%) translateY(0%);
+        background-color: rgb(72, 71, 71);
+        border: 0.2px solid white;
+        box-shadow: -2px 2px 5px #ccc;
+    }
+    &:active {
+        background-color: rgb(47, 46, 46);
+        box-shadow: none;
+        transform: translateX(0%) translateY(0%);
+    }
+}

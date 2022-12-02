@@ -1,0 +1,42 @@
+.logo {
+  margin-right: auto;
+}
+
+.link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 10px;
+  height: 38px;
+  width: 108px;
+  border-radius: 4px;
+  border: 0.2px solid black;
+  -webkit-transition: background-color 50ms ease-in-out, -webkit-transform 100ms ease-in-out;
+  transition: background-color 50ms ease-in-out, -webkit-transform 100ms ease-in-out;
+  transition: background-color 50ms ease-in-out, transform 100ms ease-in-out;
+  transition: background-color 50ms ease-in-out, transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
+}
+
+.link:hover {
+  -webkit-transform: translateX(2%) translateY(0%);
+          transform: translateX(2%) translateY(0%);
+  background-color: #484747;
+  border: 0.2px solid white;
+  -webkit-box-shadow: -2px 2px 5px #ccc;
+          box-shadow: -2px 2px 5px #ccc;
+}
+
+.link:active {
+  background-color: #2f2e2e;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: translateX(0%) translateY(0%);
+          transform: translateX(0%) translateY(0%);
+}
+/*# sourceMappingURL=Nav.module.css.map */
