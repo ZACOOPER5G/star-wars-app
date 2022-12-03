@@ -27,7 +27,8 @@ export default function Home({ films }) {
 	}, [getStaticProps]);
 
 	// function to set favourites on selection. passed down to FilmPoster component as props
-	const handleFavourites = (favourite) => {
+	const handleAddFavourites = (favourite) => {
+		// determines favourite film selection
 		let favouriteFilmSelection = filmList.find(film => {
 			if (film.properties.episode_id === favourite)
 			return film
@@ -54,6 +55,34 @@ export default function Home({ films }) {
 		setFilmList(newFilmList);
 	};
 
+	// function to remove favourites on selection. passed down to FilmPoster component as props
+	const handleRemoveFavourites = (favourite) => {
+		// determines favourite film selection
+		let favouriteFilmSelection = filmList.find(film => {
+			if (film.properties.episode_id === favourite)
+			return film
+		});
+
+		// removes favourite film selection from favourites array
+		let favouritesList = []
+		favourites.forEach(film => {
+			if (film.properties.episode_id !== favourite) {
+				favouritesList.push(film)
+			}
+		});
+		setFavourites(favouritesList)
+		
+		// re-orders homepage film list based on latest removed favourite
+		let newFilmList = [];
+		filmList.forEach(film => {
+			if (film.properties.episode_id !== favouriteFilmSelection.properties.episode_id)
+			newFilmList.push(film)
+		});
+		newFilmList.push(favouriteFilmSelection);
+
+		setFilmList(newFilmList);
+	};
+
 	return (
 		<div className={styles.container}>
 		<Head>
@@ -67,7 +96,8 @@ export default function Home({ films }) {
 					id={ film.properties.episode_id } 
 					title={ film.properties.title } 
 					release={ film.properties.release_date } 
-					handleFavourites={ handleFavourites }
+					handleAddFavourites={ handleAddFavourites }
+					handleRemoveFavourites={ handleRemoveFavourites }
 					favourite={favourites.includes(film) ? true : false}
 				/>
 			))}

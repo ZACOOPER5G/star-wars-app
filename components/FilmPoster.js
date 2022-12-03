@@ -3,15 +3,15 @@ import styles from "../styles/Films.module.css";
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 
-const FilmPoster = ({ title, release, handleFavourites, id, favourite }) => {
+const FilmPoster = ({ title, release, handleAddFavourites, handleRemoveFavourites, id, favourite }) => {
     return (
         <div className={styles.film} >
             <Card variant="outlined" >
                 <CardContent>
                     { favourite ? (
-                        <button className={styles.favourite} onClick={() => handleFavourites(id)}><StarIcon /></button> 
+                        <button className={styles.favourite} onClick={() => handleRemoveFavourites(id)}><StarIcon /></button> 
                     ) : (
-                        <button className={styles.favourite} onClick={() => handleFavourites(id)}><StarBorderIcon /></button>
+                        <button className={styles.favourite} onClick={() => handleAddFavourites(id)}><StarBorderIcon /></button>
                     ) }
                     <Typography variant="h5" component="div">
                         { title }
@@ -26,7 +26,7 @@ const FilmPoster = ({ title, release, handleFavourites, id, favourite }) => {
                     <CardActions>
                     <span>
                         <Button size="small">See more</Button>
-                        <Button size="small" onClick={() => handleFavourites(id)} >Add to favourites</Button>
+                        {!favourite ? <Button size="small" onClick={() => handleAddFavourites(id)} >Add to favourites</Button> :  <Button size="small" onClick={() => handleRemoveFavourites(id)} >Remove from favourites</Button>}
                     </span>
                 </CardActions>
             </Card>
