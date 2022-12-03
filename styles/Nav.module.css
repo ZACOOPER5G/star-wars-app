@@ -9,6 +9,7 @@
   margin-right: auto;
   font-family: "STARWARS";
   font-size: 36px;
+  padding-left: 8px;
 }
 
 .link {
@@ -26,25 +27,21 @@
   width: 108px;
   border-radius: 4px;
   border: 0.2px solid black;
-  -webkit-transition: background-color 50ms ease-in-out, -webkit-transform 100ms ease-in-out;
-  transition: background-color 50ms ease-in-out, -webkit-transform 100ms ease-in-out;
-  transition: background-color 50ms ease-in-out, transform 100ms ease-in-out;
-  transition: background-color 50ms ease-in-out, transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
+  -webkit-transition: border 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
+  transition: border 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
+  transition: border 100ms ease-in-out, transform 100ms ease-in-out;
+  transition: border 100ms ease-in-out, transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
 }
 
 .link:hover {
   -webkit-transform: translateX(2%) translateY(0%);
           transform: translateX(2%) translateY(0%);
-  background-color: #484747;
-  border: 0.2px solid white;
-  -webkit-box-shadow: -2px 2px 5px #ccc;
-          box-shadow: -2px 2px 5px #ccc;
+  border: 0.2 solid #ccc;
+  border: 1px solid white;
 }
 
 .link:active {
   background-color: #2f2e2e;
-  -webkit-box-shadow: none;
-          box-shadow: none;
   -webkit-transform: translateX(0%) translateY(0%);
           transform: translateX(0%) translateY(0%);
 }
