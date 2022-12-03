@@ -9,9 +9,9 @@ const FilmPoster = ({ title, release, handleFavourites, id, favourite }) => {
             <Card variant="outlined" >
                 <CardContent>
                     { favourite ? (
-                        <img src={StarIcon} className="favourite" /> 
+                        <StarIcon className={styles.favourite} /> 
                     ) : (
-                        <img src={StarBorderIcon} className="favourite" />
+                        <StarBorderIcon className={styles.favourite} /> 
                     ) }
                     <Typography variant="h5" component="div">
                         { title }

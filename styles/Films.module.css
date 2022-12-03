@@ -8,4 +8,10 @@
 .film:hover {
   border: 2px solid #ccc;
 }
+
+.favourite {
+  position: absolute;
+  -webkit-transform: translateX(1500%);
+          transform: translateX(1500%);
+}
 /*# sourceMappingURL=Films.module.css.map */
