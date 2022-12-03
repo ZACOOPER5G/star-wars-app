@@ -1,22 +1,33 @@
 import { CardContent, Typography, CardActions, Button, Card } from "@mui/material";
+import styles from "../styles/Films.module.css";
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import StarIcon from '@mui/icons-material/Star';
 
-const FilmPoster = ({ title, release }) => {
+const FilmPoster = ({ title, release, handleFavourites, id, favourite }) => {
     return (
-        <div>
+        <div className={styles.film} >
             <Card variant="outlined" >
                 <CardContent>
+                    { favourite ? (
+                        <img src={StarIcon} className="favourite" /> 
+                    ) : (
+                        <img src={StarBorderIcon} className="favourite" />
+                    ) }
                     <Typography variant="h5" component="div">
                         { title }
                     </Typography>
                     <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                        adjective
+                        Released: { release }
                     </Typography>
                     <Typography variant="body2">
-                        { release }
+
                     </Typography>
                     </CardContent>
                     <CardActions>
-                    <Button size="small">Learn More</Button>
+                    <span>
+                        <Button size="small">See more</Button>
+                        <Button size="small" onClick={() => handleFavourites(id)} >Add to favourites</Button>
+                    </span>
                 </CardActions>
             </Card>
         </div>
