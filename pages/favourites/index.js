@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import FilmPoster from "../../components/FilmPoster";
 
 const Favourites = () => {
@@ -90,10 +91,11 @@ const Favourites = () => {
 		let storedFilmsList = localStorage.getItem("filmsList");
 		setFilmList(JSON.parse(storedFilmsList));
 	};
+    console.log(favourites.length)
 
     return (
-        <div className="film-list" >
-            {favourites ? favourites.map((film) => (
+        <div className={ favourites.length > 0 ? "film-list" : null } >
+            {favourites.length > 0 ? favourites.map((film) => (
 				<FilmPoster 
 					key={ film.properties.episode_id } 
 					id={ film.properties.episode_id } 
@@ -103,7 +105,7 @@ const Favourites = () => {
 					handleRemoveFavourites={ handleRemoveFavourites }
 					favourite={JSON.stringify(favourites).includes(film._id.toString()) ? true : false }
 				/>
-			)) : <h1>You haven't added any favourites yet. Add some from the home page!</h1>}
+			)) : (<h1>You haven't added any favourites yet. Add some from the <Link href="/" >home page.</Link></h1>)}
         </div>
     )
 };
