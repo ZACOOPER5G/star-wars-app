@@ -1,10 +1,9 @@
 import Navbar from "./Navbar"
 
-
-const Layout = ({ children }) => {
+const Layout = ({ children, search, setSearch }) => {
   return (
     <div className="content" >
-        <Navbar />
+        <Navbar search={search} setSearch={setSearch} />
         { children }
     </div>
   )

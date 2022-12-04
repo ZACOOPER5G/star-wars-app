@@ -7,7 +7,7 @@ import FilmsContext from '../context/FilmsContext';
 
 export default function Home() {
 	const filmsContext = useContext(FilmsContext);
-	const { filmList, setFilmList } = filmsContext;
+	const { filmList, setFilmList, search } = filmsContext;
 	const favouritesContext = useContext(FavouritesContext);
 	const { favourites, setFavourites } = favouritesContext;
 
@@ -86,8 +86,14 @@ export default function Home() {
 			<link rel="icon" href="/favicon.ico" />
 		</Head>
 		<div className="film-list" >
-			{filmList.map((film) => (
-				<FilmPoster 
+			{filmList.filter(film => {
+                if (search === "") {
+                    return film
+                } else if (film.properties.title.toString().toLowerCase().includes(search.toLowerCase())) {
+                    return film
+                }
+            }).map((film) => (
+				<FilmPoster
 					key={ film.properties.episode_id } 
 					id={ film.properties.episode_id } 
 					title={ film.properties.title } 

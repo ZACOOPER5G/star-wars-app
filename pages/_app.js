@@ -31,9 +31,12 @@ export const getStaticProps = async () => {
 function MyApp({ Component, pageProps, films }) {
 	const [filmList, setFilmList] = useState([]);
 	const [favourites, setFavourites] = useState([]);
+
 	// monitors url changes to re-ender components
 	const router = useRouter();
 	const pathname = router.pathname;
+
+	const [search, setSearch] = useState('');
 
 	// grabs films from API call and sets film list on initial render
 	useEffect(() => {
@@ -56,9 +59,9 @@ function MyApp({ Component, pageProps, films }) {
 
 
 	return (
-		<FilmsContext.Provider value={{ filmList, setFilmList }}>
+		<FilmsContext.Provider value={{ filmList, setFilmList, search }}>
 			<FavouritesContext.Provider value={{ favourites, setFavourites}}>
-				<Layout>
+				<Layout search={search} setSearch={setSearch} >
 					<ThemeProvider theme={darkTheme}>
 						<CssBaseline />
 						<Component {...pageProps} />

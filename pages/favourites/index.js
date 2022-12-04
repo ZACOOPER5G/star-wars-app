@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import FilmPoster from "../../components/FilmPoster";
+import FilmsContext from "../../context/FilmsContext";
 
 const Favourites = () => {
 	const [filmList, setFilmList] = useState([]);
@@ -9,6 +10,9 @@ const Favourites = () => {
     // monitors url changes to re-ender components
     const router = useRouter();
 	const pathname = router.pathname;
+    // bringing in search state
+    const filmsContext = useContext(FilmsContext);
+    const { search } = filmsContext;
 
     useEffect(() => {
 		if (localStorage.getItem("filmsList")) {
@@ -95,7 +99,13 @@ const Favourites = () => {
 
     return (
         <div className={ favourites.length > 0 ? "film-list" : null } >
-            {favourites.length > 0 ? favourites.map((film) => (
+            {favourites.length > 0 ? favourites.filter(film => {
+                if (search === "") {
+                    return film
+                } else if (film.properties.title.toString().toLowerCase().includes(search.toLowerCase())) {
+                    return film
+                }
+            }).map((film) => (
 				<FilmPoster 
 					key={ film.properties.episode_id } 
 					id={ film.properties.episode_id } 
