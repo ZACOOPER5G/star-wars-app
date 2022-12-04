@@ -1,30 +1,15 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import FilmPoster from "../components/FilmPoster";
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+import FavouritesContext from "../context/FavouritesContext";
+import FilmsContext from '../context/FilmsContext';
 
-// fetching API data
-export const getStaticProps = async () => {
-	try {
-		let response = await fetch("https://www.swapi.tech/api/films/");
-		let data = await response.json();
-		return {
-			props: {
-				films: data
-			}
-		};
-	} catch (err) {
-		console.log(err)
-	}
-};
-
-export default function Home({ films }) {
-	const [filmList, setFilmList] = useState([])
-	const [favourites, setFavourites] = useState([]);
-
-	useEffect(() => {
-		setFilmList(films.result)
-	}, [getStaticProps]);
+export default function Home() {
+	const filmsContext = useContext(FilmsContext);
+	const { filmList, setFilmList } = filmsContext;
+	const favouritesContext = useContext(FavouritesContext);
+	const { favourites, setFavourites } = favouritesContext;
 
 	// function to set favourites on selection. passed down to FilmPoster component as props
 	const handleAddFavourites = (favourite) => {
@@ -40,10 +25,12 @@ export default function Home({ films }) {
 		favourites.forEach(film => {
 			favouritesList.push(film);
 		});
-
-		setFavourites(favouritesList)
+		// adds favourite to local storage
+		localStorage.setItem("favouritesList", JSON.stringify(favouritesList));
+		let storedFavouritesList = localStorage.getItem("favouritesList");
+		setFavourites(JSON.parse(storedFavouritesList));
 		
-		// re-orders homepage film list based on latest favourite
+		// re-orders homepage film list based on latest favourite and sets to localStorage
 		let newFilmList = [];
 		newFilmList.push(favouriteFilmSelection);
 
@@ -52,7 +39,10 @@ export default function Home({ films }) {
 			newFilmList.push(film)
 		});
 
-		setFilmList(newFilmList);
+		// adds ordered list to localStorage
+		localStorage.setItem("filmsList", JSON.stringify(newFilmList));
+		let storedFilmsList = localStorage.getItem("filmsList")
+		setFilmList(JSON.parse(storedFilmsList));
 	};
 
 	// function to remove favourites on selection. passed down to FilmPoster component as props
@@ -64,13 +54,16 @@ export default function Home({ films }) {
 		});
 
 		// removes favourite film selection from favourites array
-		let favouritesList = []
+		let newFavouritesList = []
 		favourites.forEach(film => {
 			if (film.properties.episode_id !== favourite) {
-				favouritesList.push(film)
+				newFavouritesList.push(film)
 			}
 		});
-		setFavourites(favouritesList)
+		// removes favourite from local storage
+		localStorage.setItem("favouritesList", JSON.stringify(newFavouritesList));
+		let storedFavouritesList = localStorage.getItem("favouritesList");
+		setFavourites(JSON.parse(storedFavouritesList));
 		
 		// re-orders homepage film list based on latest removed favourite
 		let newFilmList = [];
@@ -80,7 +73,10 @@ export default function Home({ films }) {
 		});
 		newFilmList.push(favouriteFilmSelection);
 
-		setFilmList(newFilmList);
+		// adds re-ordered list to localStorage
+		localStorage.setItem("filmsList", JSON.stringify(newFilmList));
+		let storedFilmsList = localStorage.getItem("filmsList");
+		setFilmList(JSON.parse(storedFilmsList));
 	};
 
 	return (
@@ -98,7 +94,7 @@ export default function Home({ films }) {
 					release={ film.properties.release_date } 
 					handleAddFavourites={ handleAddFavourites }
 					handleRemoveFavourites={ handleRemoveFavourites }
-					favourite={favourites.includes(film) ? true : false}
+					favourite={JSON.stringify(favourites).includes(film._id.toString()) ? true : false }
 				/>
 			))}
 		</div>

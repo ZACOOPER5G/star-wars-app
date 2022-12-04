@@ -4,6 +4,7 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 
 const FilmPoster = ({ title, release, handleAddFavourites, handleRemoveFavourites, id, favourite }) => {
+
     return (
         <div className={styles.film} >
             <Card variant="outlined" >
