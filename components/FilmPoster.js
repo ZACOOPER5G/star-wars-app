@@ -25,7 +25,7 @@ const FilmPoster = ({ title, release, handleAddFavourites, handleRemoveFavourite
                     </Typography>
                     </CardContent>
                     <CardActions>
-                    <span>
+                    <span className={styles.buttons}>
                         <Button size="small" color="info">See more</Button>
                         {!favourite ? <Button size="small" onClick={() => handleAddFavourites(id)} color="primary" >Add to favourites</Button> :  <Button size="small" onClick={() => handleRemoveFavourites(id)} color="error" >Remove from favourites</Button>}
                     </span>
