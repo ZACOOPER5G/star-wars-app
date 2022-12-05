@@ -1,0 +1,22 @@
+.character {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 50px;
+  -webkit-transition: background-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
+}
+
+.character:hover {
+  border: 2px solid #ccc;
+  cursor: default;
+  background-color: #505050;
+}
+/*# sourceMappingURL=Characters.module.css.map */

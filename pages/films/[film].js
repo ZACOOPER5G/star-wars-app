@@ -1,4 +1,5 @@
 import Film from "../../components/Film";
+import * as React from 'react';
 import FilmsContext from "../../context/FilmsContext";
 import FavouritesContext from "../../context/FavouritesContext";
 import { useContext } from "react";
@@ -113,11 +114,14 @@ const Films = ({ film }) => {
             urlID = { films.uid }
             title={ films.properties.title } 
             release={ films.properties.release_date }
+            director={ films.properties.director }
+            producer={ films.properties.producer }
+            characters={ films.properties.characters }
             handleAddFavourites={ handleAddFavourites }
 			handleRemoveFavourites={ handleRemoveFavourites }
             favourite={JSON.stringify(favourites).includes(films._id.toString()) ? true : false }
         />
     )
-}
+};
 
 export default Films
