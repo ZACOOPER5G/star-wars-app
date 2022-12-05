@@ -14,17 +14,15 @@ const darkTheme = createTheme({
 });
 
 // fetching API data
-export const getStaticProps = async () => {
+MyApp.getInitialProps = async (ctx) => {
 	try {
 		let response = await fetch("https://www.swapi.tech/api/films/");
 		let data = await response.json();
 		return {
-			props: {
-				films: data
-			}
-		};
+			films: data
+		}
 	} catch (err) {
-		console.log(err);
+		console.log(err)
 	}
 };
 
