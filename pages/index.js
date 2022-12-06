@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
 import FilmPoster from "../components/FilmPoster";
 import { useContext } from "react";
 import FavouritesContext from "../context/FavouritesContext";
@@ -80,30 +79,31 @@ export default function Home() {
 	};
 
 	return (
-		<div className={styles.container}>
-		<Head>
-			<title>Star Wars Flix</title>
-			<link rel="icon" href="/favicon.ico" />
-		</Head>
-		<div className="film-list" >
-			{filmList.filter(film => {
-                if (search === "") {
-                    return film
-                } else if (film.properties.title.toString().toLowerCase().includes(search.toLowerCase())) {
-                    return film
-                }
-            }).map((film) => (
-				<FilmPoster
-					key={ film.properties.episode_id } 
-					id={ film.properties.episode_id } 
-					title={ film.properties.title } 
-					release={ film.properties.release_date } 
-					handleAddFavourites={ handleAddFavourites }
-					handleRemoveFavourites={ handleRemoveFavourites }
-					favourite={JSON.stringify(favourites).includes(film._id.toString()) ? true : false }
-				/>
-			))}
-		</div>
+		<div>
+			<Head>
+				<title>Star Wars Flix</title>
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
+			<div className="film-list" >
+				{filmList.filter(film => {
+					if (search === "") {
+						return film
+					} else if (film.properties.title.toString().toLowerCase().includes(search.toLowerCase())) {
+						return film
+					}
+				}).map((film) => (
+					<FilmPoster
+						key={ film.properties.episode_id } 
+						id={ film.properties.episode_id } 
+						urlID = { film.uid }
+						title={ film.properties.title } 
+						release={ film.properties.release_date } 
+						handleAddFavourites={ handleAddFavourites }
+						handleRemoveFavourites={ handleRemoveFavourites }
+						favourite={JSON.stringify(favourites).includes(film._id.toString()) ? true : false }
+					/>
+				))}
+			</div>
 		</div>
 	)
 };

@@ -1,0 +1,13 @@
+.character {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    transition: background-color 150ms ease-in-out;
+    &:hover {
+        border: 2px solid #ccc;
+        cursor: default;
+        background-color: #505050;
+    }
+}

@@ -14,12 +14,20 @@ const darkTheme = createTheme({
 });
 
 // fetching API data
-MyApp.getInitialProps = async (ctx) => {
+MyApp.getInitialProps = async () => {
 	try {
 		let response = await fetch("https://www.swapi.tech/api/films/");
 		let data = await response.json();
-		return {
-			films: data
+		if (data === typeof("object")) {
+			return {
+				films: data
+			}
+		} else {
+			return {
+				films: {
+					"Error Message": "Too many api calls, try again later"
+				}
+			}
 		}
 	} catch (err) {
 		console.log(err)

@@ -95,7 +95,6 @@ const Favourites = () => {
 		let storedFilmsList = localStorage.getItem("filmsList");
 		setFilmList(JSON.parse(storedFilmsList));
 	};
-    console.log(favourites.length)
 
     return (
         <div className={ favourites.length > 0 ? "film-list" : null } >
@@ -109,6 +108,7 @@ const Favourites = () => {
 				<FilmPoster 
 					key={ film.properties.episode_id } 
 					id={ film.properties.episode_id } 
+                    urlID = { film.uid }
 					title={ film.properties.title } 
 					release={ film.properties.release_date } 
 					handleAddFavourites={ handleAddFavourites }

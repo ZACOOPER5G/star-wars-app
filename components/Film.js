@@ -79,4 +79,3 @@ const Film = ({ title, release, handleAddFavourites, handleRemoveFavourites, id,
 }
 
 export default Film
-

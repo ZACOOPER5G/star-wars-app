@@ -2,8 +2,9 @@ import { CardContent, Typography, CardActions, Button, Card } from "@mui/materia
 import styles from "../styles/Films.module.css";
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
+import Link from "next/link";
 
-const FilmPoster = ({ title, release, handleAddFavourites, handleRemoveFavourites, id, favourite }) => {
+const FilmPoster = ({ title, release, handleAddFavourites, handleRemoveFavourites, id, favourite, urlID }) => {
 
     return (
         <div className={styles.film} >
@@ -15,7 +16,7 @@ const FilmPoster = ({ title, release, handleAddFavourites, handleRemoveFavourite
                         <button className={styles.favourite} onClick={() => handleAddFavourites(id)}><StarBorderIcon /></button>
                     ) }
                     <Typography variant="h5" component="div">
-                        { title }
+                        <Link href={`/films/${urlID}`}>{ title }</Link>
                     </Typography>
                     <Typography sx={{ mb: 1.5 }} color="text.secondary">
                         Released: { release }
@@ -26,7 +27,7 @@ const FilmPoster = ({ title, release, handleAddFavourites, handleRemoveFavourite
                     </CardContent>
                     <CardActions>
                     <span className={styles.buttons}>
-                        <Button size="small" color="info">See more</Button>
+                        <Link href={`/films/${urlID}`}><Button size="small" color="info">See more</Button></Link>
                         {!favourite ? <Button size="small" onClick={() => handleAddFavourites(id)} color="primary" >Add to favourites</Button> :  <Button size="small" onClick={() => handleRemoveFavourites(id)} color="error" >Remove from favourites</Button>}
                     </span>
                 </CardActions>

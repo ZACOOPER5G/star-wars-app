@@ -1,7 +1,6 @@
 import { Card } from "@mui/material"
 import { styled } from '@mui/material/styles';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
-import Typography from '@mui/material/Typography';
 import styles from "../styles/Characters.module.css"
 import { useState, useEffect } from "react";
 
@@ -39,7 +38,6 @@ const Character = ({ name, birthYear, hairColor, eyeColor, gender, homeworld }) 
         <HtmlTooltip
             title={
             <div>
-                <Typography color="inherit">Name: { name }</Typography>
                 <em>{"Homeworld: "}</em> 
                 <b>{homeworldData.length === 0 ? "Loading..." : homeworldData.result.properties.name }</b>
                 <br/>
