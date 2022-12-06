@@ -42,6 +42,7 @@
     .hamburger {
         visibility: visible !important;
         z-index: 1;
+        width: auto !important;
     }
 
     .navLinks {
@@ -70,6 +71,8 @@
 .hamburger {
     visibility: hidden;
     position: relative;
+    width: 1px;
+    overflow: hidden;
 }
 
 .hamburger:hover {

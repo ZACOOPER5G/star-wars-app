@@ -63,7 +63,7 @@
   .hamburger {
     visibility: visible !important;
     z-index: 1;
-    width: 40px !important;
+    width: auto !important;
   }
   .navLinks {
     position: fixed;
