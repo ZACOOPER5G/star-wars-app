@@ -45,4 +45,22 @@ nav {
       grid-template-columns: 1fr 1fr;
   gap: 18px;
 }
+
+.css-46bh2p-MuiCardContent-root {
+  position: relative;
+}
+
+@media only screen and (max-width: 750px) {
+  .film-list {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+.content nav .responsive_nav {
+  -webkit-transform: translateY(0vh) !important;
+          transform: translateY(0vh) !important;
+  width: 100%;
+  height: 30%;
+}
 /*# sourceMappingURL=global.css.map */

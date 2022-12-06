@@ -45,4 +45,64 @@
   -webkit-transform: translateX(0%) translateY(0%);
           transform: translateX(0%) translateY(0%);
 }
+
+.navLinks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+@media only screen and (max-width: 860px) {
+  .logo {
+    font-size: 24px;
+  }
+  .hamburger {
+    visibility: visible !important;
+    z-index: 1;
+  }
+  .navLinks {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 0%;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 10px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: #121212;
+    -webkit-transition: 200ms;
+    transition: 200ms;
+    -webkit-transform: translateY(-100vh);
+            transform: translateY(-100vh);
+    z-index: 1;
+  }
+  .link {
+    width: 220px;
+    margin-left: 0;
+  }
+}
+
+.hamburger {
+  visibility: hidden;
+  position: relative;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+}
 /*# sourceMappingURL=Nav.module.css.map */
