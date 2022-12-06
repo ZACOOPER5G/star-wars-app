@@ -47,4 +47,11 @@
   gap: 10px;
   margin-top: 10px;
 }
+
+@media only screen and (max-width: 755px) {
+  .characters {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+}
 /*# sourceMappingURL=Films.module.css.map */
