@@ -15,7 +15,7 @@ const FilmPoster = ({ title, release, handleAddFavourites, handleRemoveFavourite
                     ) : (
                         <button className={styles.favourite} onClick={() => handleAddFavourites(id)}><StarBorderIcon /></button>
                     ) }
-                    <Typography variant="h5" component="div">
+                    <Typography variant="h5" component="div" className={styles.title}>
                         <Link href={`/films/${urlID}`}>{ title }</Link>
                     </Typography>
                     <Typography sx={{ mb: 1.5 }} color="text.secondary">

@@ -11,21 +11,16 @@
   border: 2px solid #ccc;
 }
 
+.filmPoster {
+  position: relative;
+}
+
 .favourite {
   position: absolute;
   right: 3%;
 }
 
 .favourite:hover {
-  cursor: pointer;
-}
-
-.favouriteFilmPage {
-  position: absolute;
-  right: 2%;
-}
-
-.favouriteFilmPage:hover {
   cursor: pointer;
 }
 
@@ -52,6 +47,9 @@
   .characters {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
+  }
+  .title {
+    font-size: 18px;
   }
 }
 /*# sourceMappingURL=Films.module.css.map */

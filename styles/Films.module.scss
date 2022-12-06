@@ -9,17 +9,13 @@
     }
 }
 
+.filmPoster {
+    position: relative;
+}
+
 .favourite {
     position: absolute;
     right: 3%;
-    &:hover {
-        cursor: pointer;
-    }
-}
-
-.favouriteFilmPage {
-    position: absolute;
-    right: 2%;
     &:hover {
         cursor: pointer;
     }
@@ -41,5 +37,9 @@
 @media only screen and (max-width: 755px) {
     .characters {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .title {
+        font-size: 18px;
     }
 }
