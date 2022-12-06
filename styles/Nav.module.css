@@ -63,6 +63,7 @@
   .hamburger {
     visibility: visible !important;
     z-index: 1;
+    width: 40px !important;
   }
   .navLinks {
     position: fixed;
@@ -100,6 +101,8 @@
 .hamburger {
   visibility: hidden;
   position: relative;
+  width: 1px;
+  overflow: hidden;
 }
 
 .hamburger:hover {
