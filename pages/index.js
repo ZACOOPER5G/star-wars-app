@@ -85,7 +85,7 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<div className="film-list" >
-				{filmList.filter(film => {
+				{filmList.length > 0 && filmList.filter(film => {
 					if (search === "") {
 						return film
 					} else if (film.properties.title.toString().toLowerCase().includes(search.toLowerCase())) {
