@@ -1,5 +1,6 @@
-## Learn More
-About the Star Wars universe with this application. This app will give you the ability to search through all your favourite Star Wars films (available from the SWAPI), favourite select films so they appear at the top of the homepage and on the favourites page, and view more information about each film. 
+## Learn More About the Star Wars universe with this application 📈
+
+This app will give you the ability to search through all your favourite Star Wars films (available from the SWAPI), favourite select films so they appear at the top of the homepage and on the favourites page, and view more information about each film. 
 
 Each film contains more information on when it was released, the Director and the Producer, as well as all of the characters who appear in the film. Hover over each character to find out more of their personal information, including what planet they are from, hair colour, birthdate, and more!
 
