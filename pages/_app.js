@@ -55,7 +55,6 @@ function MyApp({ Component, pageProps, films }) {
 		}
 	}, [pathname]);
 
-
 	return (
 		<FilmsContext.Provider value={{ filmList, setFilmList, search }}>
 			<FavouritesContext.Provider value={{ favourites, setFavourites}}>
