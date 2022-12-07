@@ -1,6 +1,27 @@
+## Learn More About the Star Wars universe with this application 📈
+
+This app will give you the ability to search through all your favourite Star Wars films (available from the SWAPI), favourite select films so they appear at the top of the homepage and on the favourites page, and view more information about each film. 
+
+Each film contains more information on when it was released, the Director and the Producer, as well as all of the characters who appear in the film. Hover over each character to find out more of their personal information, including what planet they are from, hair colour, birthdate, and more!
+
+<iframe src="https://giphy.com/embed/iYVneIXJQ3jdJLkZmM" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+## About the project 📝
+
+* This app was built using Next.js and Material UI components. 
+* Data, such as films that have been favourited, will persist and are saved via local storage.
+* The App was styled using Sass.
+
+## Features ⚙️
+
+* Search through the available Star Wars films using the search field in the navbar. Films can only be searched using their title.
+* Add and remove favourite films. Films will be reordered and added/removed from the favourites page depending on your favourite selections. Information is persisted through local storage.
+* Selection "See More" or the title of each film from the homepage/favourites page will take you to a separate url where individual information about the film is displayed. Hover over each character to find out more information about them as well!
+* API data from SWAPI is collected as an initial prop via the app component. This is then stored in local storage and used globally throughout the app. Upon clicking each film, individual data is fetched from the SWAPI for each character and might take a few additional seconds to load.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Getting started with the app 🛠️
 
 First, run the development server:
 
@@ -18,7 +39,7 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## Learn More 🧑🏻‍💻
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -27,8 +48,6 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deployed on Vercel 🚀
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Visit the latest deployment of the app via 🔗 https://star-wars-flix.vercel.app 🔗. Happy exploring! 
