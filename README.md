@@ -50,4 +50,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deployed on Vercel 🚀
 
-Visit the latest deployment of the app via star-wars-flix.vercel.app. Happy exploring! 
+Visit the latest deployment of the app via 🔗 https://star-wars-flix.vercel.app 🔗. Happy exploring! 
