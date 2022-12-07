@@ -18,7 +18,7 @@ const Navbar = ({ setSearch }) => {
   	return (
 		<nav>
 			<div className={styles.logo} >
-				<h1 className={styles.logo}>Star Wars Flix</h1>
+			<Link href="/"><h1 className={styles.logo}>Star Wars Flix</h1></Link>
 			</div>
 			<div className={styles.navLinks} ref={navRef}>
 				<Paper
@@ -40,7 +40,7 @@ const Navbar = ({ setSearch }) => {
 				<Link href="/" className={styles.link}>Home</Link>
 				<Link href="/favourites" className={styles.link}>Favourites</Link>
 				</div>
-				<button className={`${styles.hamburger} nav-btn nav-close-btn`} onClick={showNavbar} >{!open ? <MenuIcon></MenuIcon> : <CloseIcon></CloseIcon>}</button>
+				<button className={styles.hamburger} onClick={showNavbar} >{!open ? <MenuIcon></MenuIcon> : <CloseIcon></CloseIcon>}</button>
 		</nav>
 	)
 }
