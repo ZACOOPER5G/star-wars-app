@@ -1,6 +1,26 @@
+## Learn More
+About the Star Wars universe with this application. This app will give you the ability to search through all your favourite Star Wars films (available from the SWAPI), favourite select films so they appear at the top of the homepage and on the favourites page, and view more information about each film. 
+
+Each film contains more information on when it was released, the Director and the Producer, as well as all of the characters who appear in the film. Hover over each character to find out more of their personal information, including what planet they are from, hair colour, birthdate, and more!
+
+![image](https://user-images.githubusercontent.com/105761311/206091088-555c3589-25e9-4daa-8957-4f3fff446ede.png)
+
+## About the project 📝
+
+* This app was built using Next.js and Material UI components. 
+* Data, such as films that have been favourited, will persist and are saved via local storage.
+* The App was styled using Sass.
+
+## Features ⚙️
+
+* Search through the available Star Wars films using the search field in the navbar. Films can only be searched using their title.
+* Add and remove favourite films. Films will be reordered and added/removed from the favourites page depending on your favourite selections. Information is persisted through local storage.
+* Selection "See More" or the title of each film from the homepage/favourites page will take you to a separate url where individual information about the film is displayed. Hover over each character to find out more information about them as well!
+* API data from SWAPI is collected as an initial prop via the app component. This is then stored in local storage and used globally throughout the app. Upon clicking each film, individual data is fetched from the SWAPI for each character and might take a few additional seconds to load.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Getting started with the app 🚀
 
 First, run the development server:
 
