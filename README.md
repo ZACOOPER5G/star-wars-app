@@ -4,7 +4,7 @@ This app will give you the ability to search through all your favourite Star War
 
 Each film contains more information on when it was released, the Director and the Producer, as well as all of the characters who appear in the film. Hover over each character to find out more of their personal information, including what planet they are from, hair colour, birthdate, and more!
 
-![image]([https://user-images.githubusercontent.com/105761311/206312927-eca7034e-fd7e-499f-a117-61a76ae3aff4.png](https://github.com/ZACOOPER5G/star-wars-app/blob/main/public/baby_yoda.gif))
+![image](https://github.com/ZACOOPER5G/star-wars-app/blob/main/public/baby_yoda.gif)
 
 ## About the project 📝
 
