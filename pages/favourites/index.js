@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Head from "next/head";
 import FilmPoster from "../../components/FilmPoster";
 import FilmsContext from "../../context/FilmsContext";
 
@@ -97,26 +98,32 @@ const Favourites = () => {
 	};
 
     return (
-        <div className={ favourites.length > 0 ? "film-list" : null } >
-            {favourites.length > 0 ? favourites.filter(film => {
-                if (search === "") {
-                    return film
-                } else if (film.properties.title.toString().toLowerCase().includes(search.toLowerCase())) {
-                    return film
-                }
-            }).map((film) => (
-				<FilmPoster 
-					key={ film.properties.episode_id } 
-					id={ film.properties.episode_id } 
-                    urlID = { film.uid }
-					title={ film.properties.title } 
-					release={ film.properties.release_date } 
-					handleAddFavourites={ handleAddFavourites }
-					handleRemoveFavourites={ handleRemoveFavourites }
-					favourite={JSON.stringify(favourites).includes(film._id.toString()) ? true : false }
-				/>
-			)) : (<h1>You haven't added any favourites yet. Add some from the <Link href="/" >home page.</Link></h1>)}
-        </div>
+        <>
+            <Head>
+                <title>Star Wars Flix | Favourites</title>
+				<link rel="icon" href="/favicon.ico" />
+            </Head>
+            <div className={ favourites.length > 0 ? "film-list" : null } >
+                {favourites.length > 0 ? favourites.filter(film => {
+                    if (search === "") {
+                        return film
+                    } else if (film.properties.title.toString().toLowerCase().includes(search.toLowerCase())) {
+                        return film
+                    }
+                }).map((film) => (
+                    <FilmPoster 
+                        key={ film.properties.episode_id } 
+                        id={ film.properties.episode_id } 
+                        urlID = { film.uid }
+                        title={ film.properties.title } 
+                        release={ film.properties.release_date } 
+                        handleAddFavourites={ handleAddFavourites }
+                        handleRemoveFavourites={ handleRemoveFavourites }
+                        favourite={JSON.stringify(favourites).includes(film._id.toString()) ? true : false }
+                    />
+                )) : (<h1>You haven't added any favourites yet. Add some from the <Link href="/" >home page.</Link></h1>)}
+            </div>
+        </>
     )
 };
 

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Character from "./Character";
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
+import Head from "next/head";
 
 const Film = ({ title, release, handleAddFavourites, handleRemoveFavourites, id, favourite, director, producer, characters }) => {
     const [filmCharacters, setFilmCharacters] = useState([]);
@@ -30,51 +31,57 @@ const Film = ({ title, release, handleAddFavourites, handleRemoveFavourites, id,
     }, []);
 
     return (
-        <Card variant="outlined" className={styles.filmPoster}>
-            <CardContent>
-                { favourite ? (
-                    <button className={styles.favourite} onClick={() => handleRemoveFavourites(id)}><StarIcon /></button> 
-                ) : (
-                    <button className={styles.favourite} onClick={() => handleAddFavourites(id)}><StarBorderIcon /></button>
-                ) }
-                <Typography variant="h5" component="div" className={styles.title}>
-                    { title }
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    Released: { release }
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    Director: { director }
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    Producer: { producer }
-                </Typography>
-                <Typography variant="body2">
-                    Characters: <div className={styles.characters} >{ 
-                        !loading ? (filmCharacters.map((character) => (
-                            <Character 
-                                key={ character.result.uid }
-                                name={ character.result.properties.name }
-                                birthYear={ character.result.properties.birth_year }
-                                hairColor={ character.result.properties.hair_color }
-                                eyeColor={ character.result.properties.eye_color }
-                                gender={ character.result.properties.gender }
-                                homeworld={ character.result.properties.homeworld }
-                            />
-                        ))) : (
-                            <Box sx={{ width: '100%' }}>
-                                <LinearProgress />
-                            </Box>
-                        ) 
-                    }</div>
-                </Typography>
-                </CardContent>
-                <CardActions>
-                <span className={styles.buttons}>
-                    {!favourite ? <Button size="small" onClick={() => handleAddFavourites(id)} color="primary" >Add to favourites</Button> :  <Button size="small" onClick={() => handleRemoveFavourites(id)} color="error" >Remove from favourites</Button>}
-                </span>
-            </CardActions>
-        </Card>
+        <>
+            <Head>
+                <title>Star Wars Flix | {title}</title>
+				<link rel="icon" href="/favicon.ico" />
+            </Head>
+            <Card variant="outlined" className={styles.filmPoster}>
+                <CardContent>
+                    { favourite ? (
+                        <button className={styles.favourite} onClick={() => handleRemoveFavourites(id)}><StarIcon /></button> 
+                    ) : (
+                        <button className={styles.favourite} onClick={() => handleAddFavourites(id)}><StarBorderIcon /></button>
+                    ) }
+                    <Typography variant="h5" component="div" className={styles.title}>
+                        { title }
+                    </Typography>
+                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        Released: { release }
+                    </Typography>
+                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        Director: { director }
+                    </Typography>
+                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        Producer: { producer }
+                    </Typography>
+                    <Typography variant="body2">
+                        Characters: <div className={styles.characters} >{ 
+                            !loading ? (filmCharacters.map((character) => (
+                                <Character 
+                                    key={ character.result.uid }
+                                    name={ character.result.properties.name }
+                                    birthYear={ character.result.properties.birth_year }
+                                    hairColor={ character.result.properties.hair_color }
+                                    eyeColor={ character.result.properties.eye_color }
+                                    gender={ character.result.properties.gender }
+                                    homeworld={ character.result.properties.homeworld }
+                                />
+                            ))) : (
+                                <Box sx={{ width: '100%' }}>
+                                    <LinearProgress />
+                                </Box>
+                            ) 
+                        }</div>
+                    </Typography>
+                    </CardContent>
+                    <CardActions>
+                    <span className={styles.buttons}>
+                        {!favourite ? <Button size="small" onClick={() => handleAddFavourites(id)} color="primary" >Add to favourites</Button> :  <Button size="small" onClick={() => handleRemoveFavourites(id)} color="error" >Remove from favourites</Button>}
+                    </span>
+                </CardActions>
+            </Card>
+        </>
     )
 }
 
